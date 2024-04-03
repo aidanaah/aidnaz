@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FINELLE | Женские вечерние платья</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        .price {
+            margin-top: 10px; /* Добавляем отступ от описания */
+        }
+
+        .bi-bag-check path {
+            transition: fill 0.3s ease; /* добавляем плавное изменение цвета */
+        }
+
+        .bi-bag-check:hover path {
+            fill: black; /* меняем цвет иконки при наведении */
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <h1 class="mt-5 mb-5">Женские вечерние платья</h1>
+       <div class="row">
+           {% for wdress in wdresses %}
+           <div class="col-md-3 mb-4"> <!-- Добавлен класс mb-4 для создания отступа между рядами -->
+               <div class="card" style="height: 100%">
+                   <img src="{{ wdress.image }}" class="card-img-top" alt="...">
+                   <div class="card-body">
+                       <h5 class="card-title">{{ wdress.price }}</h5>
+                       <p class="card-text">{{ wdress.name }}</p>
+                       <p class="card-text">{{ wdress.description }}</p>
+                   </div>
+                   <div class="card-body text-end">
+                       <a href="#" class="btn btn-primary">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" fill="white" class="bi bi-bag-check-fill" viewBox="0 0 16 16" >
+  <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+</svg>
+
+
+                       </a>
+                   </div>
+               </div>
+           </div>
+           {% endfor %}
+       </div>
+   </div>
+</body>
+</html>
